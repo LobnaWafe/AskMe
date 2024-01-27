@@ -5,10 +5,11 @@
 using namespace std;
 struct Data
 {
-	string Name, Email, Passward;
 	int ID;
+	string Name, Email, Passward;
 
 };
+
 struct QS
 {
 	string qa;
@@ -223,6 +224,7 @@ public:
 		cout << "enter your passward\n"; cin >> ob.Passward;
 		
 		set_data(ob);
+		return true;
 	}
 	bool sign_in()
 	{	
@@ -271,7 +273,7 @@ public:
 		if (ch == 1)
 		{
 			cout << "found\n";
-
+			return true;
 		}
 		else
 		{
@@ -320,6 +322,7 @@ public:
 		{
 			return false;
 		}
+		return true;
 	}
 	bool check_users_isfount(int to)
 	{
@@ -336,7 +339,10 @@ public:
 				break;
 			}
 		}
-		return check_to_user;
+		if (check_to_user)
+			return true;
+		else
+			return false;
 	}
 
 	bool check_email(Data ob_d)
@@ -838,7 +844,11 @@ int main()
 			
 				break;
 			}
-			else
+			else if (number == 0)
+			{
+				return 0;
+			}
+			else 
 			{
 				system("cls");
 				cout << "Please enter number from list\n";
