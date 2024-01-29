@@ -491,7 +491,7 @@ public:
 		bool ch = 0;
 		for (int i = 0; i < v_q.size(); i++)
 		{
-			if (v_q[i].counter_qs == id_q)
+			if (v_q[i].counter_qs == id_q&& id_curr==v_q[i].to)
 			{
 				ch = 1;
 				break;
@@ -501,7 +501,7 @@ public:
 			for (int i = 0; i < v_a.size(); i++)
 			{
 				if (v_a[i].id_qs == id_q) {
-					cout << "you are already responed\n";
+					cout << "this question already responed\n";
 					return true;
 				}
 			}
@@ -572,7 +572,7 @@ public:
 		bool ch_id_q = 0;
 		for (int i = 0; i < v_q.size(); i++)
 		{
-			if (n == v_q[i].counter_qs)
+			if (n == v_q[i].counter_qs && id_curr==v_q[i].from)
 			{
 				ch_id_q = 1;
 				break;
@@ -651,12 +651,12 @@ public:
 			{
 				if (v_q[i].counter_qs == v_a[j].id_qs)
 				{
-					cout << "Anwer : " << v_a[j].qs << "\n"; cout << "\n"; ch = true;
+					cout << "Answer : " << v_a[j].qs << "\n"; cout << "\n"; ch = true;
 				}
 			}
 			if (ch == false)
 			{
-				cout << "No Anwer\n"; cout << "\n";
+				cout << "No Answer\n"; cout << "\n";
 			}
 		}
 	}
@@ -783,12 +783,7 @@ int main()
 			else if (number == 4)
 			{
 				system("cls");
-				if (num == 1)
-				{
-					cout << "you have no questions\n";
-				}
-				else
-				{
+	
 					if (!oq1.qs_to_one_user())
 					{
 						cout << "you have no question\n";
@@ -801,7 +796,7 @@ int main()
 							oq1.set_answer(id_q, s);
 						}
 					}
-				}
+		
 
 		
 			}
